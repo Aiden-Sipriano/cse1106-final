@@ -11,6 +11,7 @@ int main() {
     int size = sizeof(occupants) / sizeof(occupants[0]); //gets size of array for looping 
     printf(" %d\n", size);
     removePerson('A', occupants, size);
+    removePerson('B', occupants, size);
     removePerson('K', occupants, size);
 
     printf(" %d\n", getCurrentCount(occupants, size));
@@ -49,7 +50,8 @@ int removePerson(char name, char occupants[], int size) {
             return 0; //we found the name and set it to null
         } 
     }
-    printf("%c was not found\n", name);
+    if (getCurrentCount(occupants, size) == 0) printf("Cannot remove anyone the study room is empty\n");
+    else printf("%c was not found\n", name);
     return 1;
 }
 
